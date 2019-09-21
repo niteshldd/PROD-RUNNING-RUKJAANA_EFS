@@ -1,9 +1,0 @@
- Access key ID -  AKIA5MNSKNYRC7P4T3WI
-  Secret access key - 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
-
-
-  ubu-prod@ubu-prod:~/Documents/rukjaa-prod$ aws configure
-AWS Access Key ID [None]: AKIA5MNSKNYRC7P4T3WI
-AWS Secret Access Key [None]: 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
-Default region name [None]: ap-south-1
-Default output format [None]: json

@@ -119,10 +119,11 @@ aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micr
 }
 ##########Output end######
 
-ecs-cli up --keypair rukja-prod --capability-iam --size 2 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
 
 aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
 
-
+Rukja-prod enviroment 
+email - nitesh@uruvelaa.com
 USERNAME - MyRukjaanaNiteSonali
 PASSWORD - @@@Nitesh@@KUMARSO12hd

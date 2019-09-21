@@ -13,203 +13,171 @@
   181  ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
 
   NEW WITH EXTERNAL DRIVE 
-
-  ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --template-url http://s3.amazonaws.com/ecs-refarch-volume-plugins/rexray-demo-efs.yaml --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
-  
-  182  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-   1  sudo apt-get remove --purge mysql*
-    2  sudo apt-get purge mysql*
-    3  sudo apt-get autoremove
-    4  sudo apt-get autoclean
-    5  sudo apt-get remove dbconfig-mysql
-    6  sudo apt-get dist-upgrade
-    7  sudo apt-get update
-    8  sudo apt-get install mysql-server
-    9  mysql_secure_installation
-   10  toor
-   11  mysql_secure_installation
-   12  sudo service mysql stop
-   13  sudo mkdir /var/run/mysqld; sudo chown mysql /var/run/mysqld
-   14  sudo mysqld_safe --skip-grant-tables&
-   15  sudo mysql --user=root mysql
-   16  sudo service mysql stop
-   17  sudo service mysql start
-   18  sudo service mysql status
-   19  sudo service mysql start
-   20  sudo mysqladmin shutdown
-   21  sudo service mysql start
-   22  sudo service mysql status
-   23  mysql
-   24  sudo service mysql start
-   25  sudo service mysql enable
-   26  sudo service mysql status
-   27  sudo service mysql force-reload
-   28  kill pid 16424
-   29  kill -al | grep mysql
-   30  kill -a | grep mysql
-   31  ps -al | grep mysql
-   32  kill | ps -al | grep mysql
-   33  kill pid 10828
-   34  sudo kill pid 10828
-   35  sudo kill 10828
-   36  sudo kill 10829
-   37  sudo kill 11217
-   38  kill | ps -al | grep mysql
-   39  sudo kill 1156
-   40  sudo kill mysql*
-   41  sudo kill mysql
-   42  kill | ps -al | grep mysql
-   43  mysql
-   44  sudo mysqladmin shutdown
-   45  /var/run/mysqld/mysqld.sock'
-   46  /var/run/mysqld/mysqld.sock
-   47  /var/run/mysqld
-   48  ls
-   49  sudo apt-get remove --purge mysql* -y
-   50  sudo apt-get autoremove -y
-   51  sudo apt-get autoclean
-   52  sudo apt-get remove dbconfig-mysql
-   53  sudo apt-get dist-upgrade
-   54  mysql
-   55  sudo apt-get remove mysql-server
-   56  mysql
-   57  sudo apt install mysql-server
-   58  sudo apt-get remove --purge mysql -y
-   59  sudo apt-get purge mysql* -y
-   60  sudo apt-get autoremove -y
-   61  sudo apt-get autoclean -y
-   62  sudo apt-get remove dbconfig-mysql
-   63  sudo apt-get dist-upgrade
-   64  mysql
-   65  sudo apt-get clean
-   66  sudo apt-get update
-   67  sudo dpkg -r mysql-client-5.7
-   68  mysqk
-   69  mysql
-   70  sudo dpkg -r mysql-server-5.7
-   71  sudo dpkg -r mysql-server
-   72  sudo dpkg -r libmysqlclient20:i386
-   73  sudo dpkg -r libmysqlclient20:amd64
-   74  sudo dpkg -r libmysqlclient18:amd64
-   75  sudo dpkg -r mysql-common
-   76  sudo dpkg -r mysql 
-   77  sudo apt-get purge mysql\* mariadb\* libmysql\* libmariadb\*
-   78  mysql
-   79  sudo apt install mysql-server
-   80  mysql
-   81  sudo apt purge mysql-client-5.7 mysql-client-core-5.7 mysql-common mysql-server-5.7 mysql-server-core-5.7 mysql-server
-   82  sudo apt update && sudo apt dist-upgrade && sudo apt autoremove && sudo apt -f install
-   83  sudo apt install mysql-server
-   84  mysql
-   85  sudo apt-get purge mysql-*
-   86  sudo apt-get autoremove
-   87  sudo apt-get autoclean
-   88  sudo apt-get dist-upgrade
-   89  sudo rm -rf /etc/mysql
-   90  sudo rm -rf /var/lib/mysql*
-   91  mysql
-   92  sudo apt purge mysql-client-5.7 mysql-client-core-5.7 mysql-common mysql-server-5.7 mysql-server-core-5.7 mysql-server
-   93  sudo apt update && sudo apt dist-upgrade && sudo apt autoremove && sudo apt -f install
-   94  reboot
-   95  mysqk
-   96  mysql
-   97  sudo apt install mysql-server
-   98  mysql
-   99  mysql -u root -p
-  100  cat /etc/mysql/mysql.cnf
-  101  cat /etc/mysql/my.cnf
-  102  cat /etc/mysql/conf.d/
-  103  cat /etc/mysql/conf.d/mysql.cnf 
-  104  cat /etc/mysql/conf.d/mysqldump.cnf 
-  105  cat /etc/mysql/conf.d/
-  106  sudo mysql_secure_installation
-  107  mysql
-  108  mysql -u root
-  109  mysql -u root -p
-  110  mysqld --initialize
-  111  sudo mysql
-  112  mysql -u root -p
-  113  shutdown
-  114  shutdown -f
-  115  shutdown --help
-  116  shutdown -p
-  117  shutdown -P
-  118  ls
-  119  ssh -i aws-wordpress-rukjaana.pem ubuntu@ec2-13-126-62-67.ap-south-1.compute.amazonaws.com
-  120  sudo ssh -i aws-wordpress-rukjaana.pem ubuntu@ec2-13-126-62-67.ap-south-1.compute.amazonaws.com
-  121  code .
-  122  history
-  123  ls
-  124  cd Documents/
-  125  ls
-  126  cd Wordpress-live/
-  127  ls
-  128  code .
-  129  ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
-  130  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  131  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  132  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  133  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  134  ecs-cli compose down --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  135  ecs-cli compose down  --cluster-config rukjaana --ecs-profile Rukjaana
-  136  ecs-cli compose service up  --cluster-config rukjaana --ecs-profile Rukjaana
-  137  ecs-cli compose down  --cluster-config rukjaana --ecs-profile Rukjaana
-  138  ecs-cli compose service up  --cluster-config rukjaana --ecs-profile Rukjaana
-  139  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  140  docker build --rm -t wordpress:1.0 .
-  141  sudo docker build --rm -t nginx:1.0 .
-  142  $(aws ecr get-login --no-include-email)
-  143  sudo $(aws ecr get-login --no-include-email)
-  144  aws ecr create-repository --repository-name nginx
-  145  docker tag wordpress:1.0 XYZ.dkr.ecr.us-east-1.amazonaws.com/nginx:1.0
-  146  sudo docker tag wordpress:1.0 XYZ.dkr.ecr.us-east-1.amazonaws.com/nginx:1.0
-  147  docker push 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx/nginx:1.0
-  148  sudo docker push 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
-  149  sudo docker tag wordpress:1.0 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
-  150  sudo docker push 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
-  151  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  152  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  153  sudo docker tag nginx:1.0 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
-  154* sudo docker push 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
-  155  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  156  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  157  sudo docker build --rm -t niteshldd/nginx .
-  158  sudo docker push
-  159  sudo docker push niteshldd/nginx
-  160  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  161  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  162  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  163  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  164  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  165  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  166  sudo docker ps
-  167  sudo docker images
-  168  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  169  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  170  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  171  CD ..
-  172  cd ..
-  173  ls
-  174  cd wordpress-docker/
-  175  ls
-  176  aws ecs register-task-definition --cli-input-json file:///home/ubu/Documents/Wordpress-live/wp-aws-efs-ecs/task-wordpress.json
-  177  aws ecs register-task-definition --cli-input-json ./task-wordpress.json
-  178* aws ecs register-task-definition --cli-input-json ta
-  179  $(aws ecr get-login --no-include-email)
-  180  ls
-  181  aws ecs register-task-definition --cli-input-json file://home/ubu/Documents/Wordpress-live/wp-aws-efs-ecs/task-wordpress.json
-  182  aws ecs register-task-definition --cli-input-json file://home/ubu/Documents/Wordpress-live/wordpress-docker/task-wordpress.json
-  183  aws ecs register-task-definition --cli-input-json file:///home/ubu/Documents/Wordpress-live/wordpress-docker/task-wordpress.json
-  184  cd ..
-  185  ls
-  186  cd docker-wordpress-nginx-ssl-mysql/
-  187  ecs-cli compose down --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  188  ecs-cli compose stop --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
-  189  ecs-cli compose stop
-  190  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  191  ecs-cli compose stop
-  192  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
-  193  ecs-cli compose stop
-  194  history
+u-prod@ubu-prod:~/Documents/rukjaa-prod$ history
+    1  cd copyofprod/
+    2  ls
+    3  git
+    4  sudo apt install git
+    5  git clone https://github.com/niteshldd/Production-ready-wordpress.git
+    6  ls
+    7  cd Production-ready-wordpress/
+    8  ls
+    9  code .
+   10  sudo apt update
+   11  docker
+   12  sudo snap install docker
+   13  pip install awscli
+   14  sudo apt install python-pip
+   15  pip install awscli
+   16  code .
+   17  aws configure
+   18  ls
+   19  aws ec2 describe-instances
+   20  echo "$(curl -s https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest.md5) /usr/local/bin/ecs-cli" | md5sum -c -
+   21  sudo apt install curl
+   22  echo "$(curl -s https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest.md5) /usr/local/bin/ecs-cli" | md5sum -c -
+   23  sudo curl -o /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest
+   24  echo "$(curl -s https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest.md5) /usr/local/bin/ecs-cli" | md5sum -c -
+   25  sudo chmod +x /usr/local/bin/ecs-cli
+   26  ecs-cli --version
+   27  export AWS_ACCESS_KEY_ID="AKIA5MNSKNYRC7P4T3WI"
+   28  export AWS_SECRET_ACCESS_KEY="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"
+   29  ecs-cli configure profile --profile-name rukjaana --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY
+   30  export region="ap-south-1"
+   31  export ecs-cli configure --cluster ruk-test --default-launch-type launch_type --region $region --config-name configuration_name
+   32  region
+   33  $region
+   34  export launch_type="EC2"
+   35  history
+   36  ecs-cli configure --cluster ruk-test --default-launch-type $launch_type --region $region --config-name ruk-test
+   37  ls
+   38  cd ..
+   39  ls
+   40  cd rukjaa-prod/
+   41  ls
+   42  docker build --rm -t nginx:1.0 . 
+   43  sudo docker build --rm -t nginx:1.0 . 
+   44  $(aws ecr get-login --no-include-email)
+   45  sudo $(aws ecr get-login --no-include-email)
+   46  aws ecr create-repository --repository-name nginx
+   47  docker tag nginx:1.0 920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+   48  sudo docker tag nginx:1.0 920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+   49  docker push 920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+   50  sudo docker push 920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+   51  histoy
+   52  history
+   53  aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micro --db-instance-identifier dbwordpress --engine mariadb --master-username Ay=@DY&AZV@2g5Lx --master-user-password Q29tBEy7UEe=^zhm --vpc-security-group-ids sg-0f9a10d3930074e23 --no-multi-az --no-publicly-accessible --db-name ruk-word-db
+   54  aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micro --db-instance-identifier dbwordpress --engine mariadb --master-username Ay@DY&AZV@2g5Lx --master-user-password Q29tBEy7UEe=^zhm --vpc-security-group-ids sg-0f9a10d3930074e23 --no-multi-az --no-publicly-accessible --db-name ruk-word-db
+   55  aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micro --db-instance-identifier ruk-word-db --engine mariadb --master-username rukjwordpressdbnew --master-user-password Mynai20skumar12ha --vpc-security-group-ids sg-0f9a10d3930074e23 --no-multi-az --no-publicly-accessible --db-name ruk-word-db
+   56  aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micro --db-instance-identifier ruk-word-db --engine mariadb --master-username rukjwordpressdbnew --master-user-password Mynai20skumar12ha --vpc-security-group-ids sg-0f9a10d3930074e23 --no-multi-az --no-publicly-accessible --db-name rukworddb
+   57  aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micro --db-instance-identifier ruk-word-db --engine mariadb --master-username rukviksonnite --master-user-password Mynai20skumar12ha --vpc-security-group-ids sg-0f9a10d3930074e23 --no-multi-az --no-publicly-accessible --db-name rukworddb
+   58  pwd
+   59  ls
+   60  ecs-cli up --keypair rukja-prod --capability-iam --size 2 --instance-type t2.micro --cluster-config ruk-test --extra-user-data file:///home/ubu/Documents/rukjaa-prod/myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   61  pwd
+   62  ecs-cli up --keypair rukja-prod --capability-iam --size 2 --instance-type t2.micro --cluster-config ruk-test --extra-user-data file:///home/ubu-prod/Documents/rukjaa-prod/myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   63  ecs-cli up --keypair rukja-prod --capability-iam --size 2 --instance-type t2.micro --cluster-config ruk-test --extra-user-data file://home/ubu-prod/Documents/rukjaa-prod/myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   64  ecs-cli up --keypair rukja-prod --capability-iam --size 2 --instance-type t2.micro --cluster-config ruk-test --extra-user-data file:///home/ubu-prod/Documents/rukjaa-prod/myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   65  ecs-cli up --keypair rukja-prod --capability-iam --size 2 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   66  aws ecs register-task-definition --cli-input-json ./task-wordpress.json
+   67  pwd
+   68  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+   69  history
+   70  ecs-cli ps --cluster-config ruk-test --ecs-profile rukjaana
+   71  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+   72  ecs-cli ps --cluster-config ruk-test --ecs-profile rukjaana
+   73  ecs-cli ps
+   74  ecs-cli check-attributes
+   75  ecs-cli check-attributes --task-def  taskWord-prod
+   76  ecs-cli check-attributes --task-def  taskWord-prod --container-instances i-0b1b111a7c6f66578 
+   77  ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   78  aws-cli ps
+   79  ecs-cli ps
+   80  ecs-cli check-attributes --task-def  taskWord-prod --container-instances i-0b1b111a7c6f66578
+   81  ecs-cli check-attributes --task-def  taskWord-prod --region $region
+   82  ecs-cli check-attributes --task-def  taskWord-prod --aws-profile rukjaana
+   83  ecs-cli check-attributes --task-def  taskWord-prod --container-instances --aws-profile rukjaana
+   84  ecs-cli check-attributes --task-def  taskWord-prod --container-instances i-0b1b111a7c6f66578
+   85  ecs-cli check-attributes --task-def  taskWord-prod --container-instances a571ba96-5429-42f3-9336-7825d284a470
+   86  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+   87  ecs-cli check-attributes --task-def  taskWord-prod --container-instances a571ba96-5429-42f3-9336-7825d284a470
+   88  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+   89  ecs-cli check-attributes --task-def  taskWord-prod --container-instances a571ba96-5429-42f3-9336-7825d284a470
+   90  ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   91  ecs-cli check-attributes --task-def  taskWord-prod --container-instances 9eb8ad14-e3ac-40ed-8504-b2f975c1995a
+   92  ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   93  ecs-cli check-attributes --task-def  taskWord-prod --container-instances 8d2e2dcc-34fd-45dc-bd32-dbe021d65405
+   94  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+   95  ecs-cli check-attributes --task-def  taskWord-prod --container-instances 8d2e2dcc-34fd-45dc-bd32-dbe021d65405
+   96  ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+   97  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+   98  ecs-cli check-attributes --task-def  taskWord-prod --container-instances b28c5607-ac06-4523-907f-ba12f5a86b22
+   99  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+  100  ecs-cli check-attributes --task-def  taskWord-prod --container-instances b28c5607-ac06-4523-907f-ba12f5a86b22
+  101  ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+  102  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+  103  ecs-cli check-attributes --task-def  taskWord-prod --container-instances b28c5607-ac06-4523-907f-ba12f5a86b22
+  104  ecs-cli check-attributes --task-def  taskWord-prod --container-instances b28c5607-ac06-4523-907f-ba12f5a86b22 attributes
+  105  ecs-cli check-attributes --task-def  taskWord-prod --container-instances b28c5607-ac06-4523-907f-ba12f5a86b22 attributes ecs.capability.docker-plugin.rexray/ebs
+  106  ecs-cli check-attributes --task-def  taskWord-prod --container-instances b28c5607-ac06-4523-907f-ba12f5a86b22 --attribute-name ecs.capability.docker-plugin.rexray/ebs
+  107  aws ecs list-attributes --cluster my-cluster --target-type container-instance --profile rukjaana --attribute-name ecs.capability.docker-plugin.rexray/s3fs.0.11.1
+  108  aws ecs list-attributes --cluster my-cluster --target-type container-instance b28c5607-ac06-4523-907f-ba12f5a86b22 --attribute-name ecs.capability.docker-plugin.rexray/s3fs.0.11.1
+  109  aws ecs list-attributes --cluster my-cluster --target-type container-instance --attribute-name ecs.capability.docker-plugin.rexray/s3fs.0.11.1
+  110  aws ecs list-attributes --cluster ruk-test --target-type container-instance --attribute-name ecs.capability.docker-plugin.rexray/s3fs.0.11.1
+  111  ecs-cli up --force --keypair rukja-prod --capability-iam --size 2 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+  112  ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+  113  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+  114  ecs-cli check-attributes --task-def  taskWord-prod --container-instances b28c5607-ac06-4523-907f-ba12f5a86b22
+  115  ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+  116  aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+  117  ls
+  118  git init
+  119  git add .
+  120  git commit -m "PROD READY"
+  121  git config --global user.email "nitesh.ldd@gmail.com"
+  122  git commit -m "PROD READY"
+  123  git remote add origin https://github.com/niteshldd/PROD-RUNNING-RUKJAANA_EFS.git
+  124  git push -u origin master
+  125  ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+  126  history
 
   https://blog.andreev.it/?p=4417
+
+  aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micro --db-instance-identifier aws-wordpress-rukjaana --engine mariadb --master-username dbmaster --master-user-password dbpassword --vpc-security-group-ids sg-0ad50bf47e2bd4bf7 --no-multi-az --no-publicly-accessible --db-name wordpress
+ecs-cli up --keypair aws-wordpress-rukjaana --instance-type t3.medium  --size 2 --cluster clusterWordPress --capability-iam --security-group sg-ID1 --vpc vpc-ID --subnets subnet-XY1,subnet-XY2 --verbose
+aws ecs register-task-definition --cli-input-json file:///home/ubu/Documents/Wordpress-live/wp-aws-efs-ecs/task-wordpress.json
+
+
+
+####DOCKER CLUSER####
+
+ecs-cli configure profile --access-key AKIAV632IM7XL4P7VTFW --secret-key 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 --profile-name Rukjaana
+
+ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana:prod --user-data file://myuserdata.txt --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
+
+ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+
+ecs-cli configure --cluster rukjaana --default-launch-type EC2 --config-name rukjaana --region ap-south-1
+
+ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+
+ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana:prod --user-data file://myuserdata.txt --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
+
+sudo bash -c "cat >/efs/wordpress/health.aws" <<'EOF'
+<html>
+    <body>
+        <h1>It Works!</h1>
+        <p>You are using an Amazon EFS file system for persistent container storage.</p>
+    </body>
+</html>
+EOF
+
+ Access key ID -  AKIA5MNSKNYRC7P4T3WI
+  Secret access key - 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
+
+
+  ubu-prod@ubu-prod:~/Documents/rukjaa-prod$ aws configure
+AWS Access Key ID [None]: AKIA5MNSKNYRC7P4T3WI
+AWS Secret Access Key [None]: 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
+Default region name [None]: ap-south-1
+Default output format [None]: json
