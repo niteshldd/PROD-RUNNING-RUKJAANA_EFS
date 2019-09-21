@@ -1,0 +1,28 @@
+aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micro --db-instance-identifier aws-wordpress-rukjaana --engine mariadb --master-username dbmaster --master-user-password dbpassword --vpc-security-group-ids sg-0ad50bf47e2bd4bf7 --no-multi-az --no-publicly-accessible --db-name wordpress
+ecs-cli up --keypair aws-wordpress-rukjaana --instance-type t3.medium  --size 2 --cluster clusterWordPress --capability-iam --security-group sg-ID1 --vpc vpc-ID --subnets subnet-XY1,subnet-XY2 --verbose
+aws ecs register-task-definition --cli-input-json file:///home/ubu/Documents/Wordpress-live/wp-aws-efs-ecs/task-wordpress.json
+
+
+
+####DOCKER CLUSER####
+
+ecs-cli configure profile --access-key AKIAV632IM7XL4P7VTFW --secret-key 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 --profile-name Rukjaana
+
+ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana:prod --user-data file://myuserdata.txt --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
+
+ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+
+ecs-cli configure --cluster rukjaana --default-launch-type EC2 --config-name rukjaana --region ap-south-1
+
+ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+
+ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana:prod --user-data file://myuserdata.txt --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
+
+sudo bash -c "cat >/efs/wordpress/health.aws" <<'EOF'
+<html>
+    <body>
+        <h1>It Works!</h1>
+        <p>You are using an Amazon EFS file system for persistent container storage.</p>
+    </body>
+</html>
+EOF

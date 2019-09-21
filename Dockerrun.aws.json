@@ -1,0 +1,241 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+          "dockerLabels": {
+              "com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy": "true"
+            },
+            "essential": true,
+            "memoryReservation": 128,
+            "image": "jwilder/nginx-proxy",
+            "mountPoints": [
+                {
+                    "containerPath": "/etc/nginx/conf.d",
+                    "sourceVolume": "Nginx-Proxy-Conf_D"
+                },
+                {
+                    "containerPath": "/etc/nginx/vhost.d",
+                    "sourceVolume": "Nginx-Proxy-Vhost_D"
+                },
+                {
+                    "containerPath": "/usr/share/nginx/html",
+                    "sourceVolume": "Nginx-Proxy-Html"
+                },
+                {
+                    "containerPath": "/etc/nginx/certs",
+                    "sourceVolume": "Nginx-Proxy-Certs"
+                },
+                {
+                    "containerPath": "/tmp/docker.sock",
+                    "sourceVolume": "VarRunDocker_Sock"
+                },
+                {
+                    "containerPath": "/app/nginx.tmpl",
+                    "sourceVolume": "Nginx-Proxy-Nginx_Tmpl"
+                },
+                {
+                    "containerPath": "/var/log/nginx",
+                    "sourceVolume": "Nginx-Logs"
+                },
+                {
+                    "containerPath": "/etc/nginx/fastcgi.conf",
+                    "sourceVolume": "Nginx-Proxy-Fastcgi_Conf"
+                },
+                {
+                  "sourceVolume": "efs_websites",
+                  "containerPath": "/var/www/html"
+                }
+            ],
+            "name": "nginx",
+            "portMappings": [
+                {
+                    "containerPort": 80,
+                    "hostPort": 80
+                },
+                {
+                    "containerPort": 443,
+                    "hostPort": 443
+                }
+            ]
+        },
+        {
+            "essential": true,
+            "memoryReservation": 64,
+            "image": "jrcs/letsencrypt-nginx-proxy-companion",
+            "links": [
+              "nginx"
+            ],
+            "mountPoints": [
+                {
+                    "containerPath": "/etc/nginx/conf.d",
+                    "sourceVolume": "Nginx-Proxy-Conf_D"
+                },
+                {
+                    "containerPath": "/etc/nginx/vhost.d",
+                    "sourceVolume": "Nginx-Proxy-Vhost_D"
+                },
+                {
+                    "containerPath": "/usr/share/nginx/html",
+                    "sourceVolume": "Nginx-Proxy-Html"
+                },
+                {
+                    "containerPath": "/etc/nginx/certs",
+                    "sourceVolume": "Nginx-Proxy-Certs"
+                },
+                {
+                    "containerPath": "/var/run/docker.sock",
+                    "sourceVolume": "VarRunDocker_Sock"
+                }
+            ],
+            "name": "nginx-letsencrypt"
+        },
+        {
+          "name": "ds_sftp",
+          "image": "atmoz/sftp:alpine",
+          "essential": true,
+          "memoryReservation": 32,
+          "portMappings": [
+            {
+              "hostPort": 2222,
+              "containerPort": 22
+            }
+          ],
+          "mountPoints": [
+            {
+              "sourceVolume": "ssh_host_ed25519_key",
+              "containerPath": "/etc/ssh/ssh_host_ed25519_key"
+            },
+            {
+              "sourceVolume": "ssh_host_rsa_key",
+              "containerPath": "/etc/ssh/ssh_host_rsa_key"
+            },
+            {
+              "sourceVolume": "sftp_users_conf",
+              "containerPath": "/etc/sftp/users.conf"
+            },
+            {
+              "sourceVolume": "efs_websites",
+              "containerPath": "/home/webupload/web"
+            },
+            {
+              "sourceVolume": "Nginx-Logs",
+              "containerPath": "/home/webupload/logs"
+            }
+          ]
+        },
+        {
+          "hostname": "rukjaana",
+          "name": "rukjaana.com",
+          "image": "dustysun/php-fpm-mysql-sendmail-wp",
+          "links": [
+            "nginx"
+          ],
+          "environment": [
+            { "name" : "VIRTUAL_HOST", "value": "rukjaana.com" },
+            { "name" : "VIRTUAL_ROOT", "value": "/var/www/html" },
+            { "name" : "VIRTUAL_PORT", "value": "9000" },
+            { "name" : "VIRTUAL_PROTO", "value": "fastcgi" },
+            { "name" : "LETSENCRYPT_HOST", "value": "rukjaana.com" },
+            { "name" : "LETSENCRYPT_EMAIL", "value": "nitesh@uruvelaa.com" },
+            { "name" : "example_dustysun_com_DB_NAME", "value": "wordpress" },
+            { "name" : "example_dustysun_com_DB_USER", "value": "dbmaster" },
+            { "name" : "example_dustysun_com_DB_PASSWORD", "value": "dbpassword" },
+            { "name" : "example_dustysun_com_TABLE_PREFIX", "value": "dt_" },
+            { "name" : "rukjaana_com_DB_NAME", "value": "wordpress" },
+            { "name" : "rukjaana_com_DB_USER", "value": "dbmaster" },
+            { "name" : "rukjaana_com_DB_PASSWORD", "value": "dbpassword" },
+            { "name" : "rukjaana_com_TABLE_PREFIX", "value": "xp_" }
+          ],
+          "essential": true,
+          "memoryReservation": 128,
+          "portMappings": [
+            {
+              "hostPort": 9000,
+              "containerPort": 9000
+            }
+          ],
+          "mountPoints": [
+            {
+              "sourceVolume": "efs_websites",
+              "containerPath": "/var/www/html"
+            }
+          ]
+        }
+    ],
+    "volumes": [
+        {
+          "name": "Nginx-Proxy-Conf_D",
+          "host": {
+              "sourcePath": "/efs-mount/nginx-proxy/conf.d"
+          }
+        },
+        {
+          "name": "Nginx-Proxy-Vhost_D",
+          "host": {
+              "sourcePath": "/efs-mount/nginx-proxy/vhost.d"
+          }
+        },
+        {
+          "name": "Nginx-Proxy-Html",
+          "host": {
+              "sourcePath": "/efs-mount/nginx-proxy/html"
+          }
+        },
+        {
+          "name": "Nginx-Proxy-Certs",
+          "host": {
+              "sourcePath": "/efs-mount/nginx-proxy/certs"
+          }
+        },
+        {
+          "name": "VarRunDocker_Sock",
+          "host": {
+              "sourcePath": "/var/run/docker.sock"
+          }
+        },
+        {
+          "name": "Nginx-Proxy-Fastcgi_Conf",
+          "host": {
+              "sourcePath": "/efs-mount/nginx-proxy/fastcgi.conf"
+          }
+        },
+        {
+          "name": "Nginx-Proxy-Nginx_Tmpl",
+          "host": {
+              "sourcePath": "/efs-mount/nginx-proxy/nginx.tmpl"
+          }
+        },
+        {
+          "name": "Nginx-Logs",
+          "host": {
+              "sourcePath": "/efs-mount/nginx-logs"
+          }
+        },
+        {
+          "name": "efs_websites",
+          "host": {
+            "sourcePath": "/efs-mount/vhosts"
+          }
+        },
+        {
+          "name": "ssh_host_ed25519_key",
+          "host": {
+            "sourcePath": "/efs-mount/sftp/ssh/ssh_host_ed25519_key"
+          }
+        },
+        {
+          "name": "ssh_host_rsa_key",
+          "host": {
+            "sourcePath": "/efs-mount/sftp/ssh/ssh_host_rsa_key"
+          }
+        },
+        {
+          "name": "sftp_users_conf",
+          "host": {
+            "sourcePath": "/efs-mount/sftp/users.conf"
+          }
+        }
+    ]
+  }
+  
+  

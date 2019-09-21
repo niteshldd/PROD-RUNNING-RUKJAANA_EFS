@@ -1,0 +1,128 @@
+AWS CLI - sudo curl -o /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest
+echo "$(curl -s https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-latest.md5) /usr/local/bin/ecs-cli" | md5sum -c -
+sudo chmod +x /usr/local/bin/ecs-cli
+export AWS_ACCESS_KEY_ID="AKIA5MNSKNYRC7P4T3WI"
+export AWS_SECRET_ACCESS_KEY="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"
+
+ecs-cli configure profile --profile-name rukjaana --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY
+
+export region="ap-south-1"
+export launch_type="EC2"
+
+ecs-cli configure --cluster ruk-test --default-launch-type $launch_type --region $region --config-name ruk-test
+
+sudo docker build --rm -t nginx:1.0 .
+sudo $(aws ecr get-login --no-include-email)
+aws ecr create-repository --repository-name nginx
+Output:
+{
+    "repository": {
+        "repositoryUri": "920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx", 
+        "registryId": "920033848866", 
+        "imageTagMutability": "MUTABLE", 
+        "repositoryArn": "arn:aws:ecr:ap-south-1:920033848866:repository/nginx", 
+        "repositoryName": "nginx", 
+        "createdAt": 1569058672.0
+    }
+}
+
+######Output Done###############
+
+security Group- https://ap-south-1.console.aws.amazon.com/ec2/v2/home?region=ap-south-1#SecurityGroups:sort=groupId
+
+
+aws rds create-db-instance --allocated-storage 20 --db-instance-class db.t2.micro --db-instance-identifier ruk-word-db --engine mariadb --master-username rukviksonnite --master-user-password Mynai20skumar12ha --vpc-security-group-ids sg-0f9a10d3930074e23 --no-multi-az --no-publicly-accessible --db-name rukworddb
+
+#####Output #####
+{
+    "DBInstance": {
+        "PubliclyAccessible": false, 
+        "MasterUsername": "rukviksonnite", 
+        "MonitoringInterval": 0, 
+        "LicenseModel": "general-public-license", 
+        "VpcSecurityGroups": [
+            {
+                "Status": "active", 
+                "VpcSecurityGroupId": "sg-0f9a10d3930074e23"
+            }
+        ], 
+        "CopyTagsToSnapshot": false, 
+        "OptionGroupMemberships": [
+            {
+                "Status": "in-sync", 
+                "OptionGroupName": "default:mariadb-10-2"
+            }
+        ], 
+        "PendingModifiedValues": {
+            "MasterUserPassword": "****"
+        }, 
+        "Engine": "mariadb", 
+        "MultiAZ": false, 
+        "DBSecurityGroups": [], 
+        "DBParameterGroups": [
+            {
+                "DBParameterGroupName": "default.mariadb10.2", 
+                "ParameterApplyStatus": "in-sync"
+            }
+        ], 
+        "PerformanceInsightsEnabled": false, 
+        "AutoMinorVersionUpgrade": true, 
+        "PreferredBackupWindow": "18:16-18:46", 
+        "DBSubnetGroup": {
+            "Subnets": [
+                {
+                    "SubnetStatus": "Active", 
+                    "SubnetIdentifier": "subnet-ea351782", 
+                    "SubnetAvailabilityZone": {
+                        "Name": "ap-south-1a"
+                    }
+                }, 
+                {
+                    "SubnetStatus": "Active", 
+                    "SubnetIdentifier": "subnet-a021fbdb", 
+                    "SubnetAvailabilityZone": {
+                        "Name": "ap-south-1c"
+                    }
+                }, 
+                {
+                    "SubnetStatus": "Active", 
+                    "SubnetIdentifier": "subnet-a4c85be8", 
+                    "SubnetAvailabilityZone": {
+                        "Name": "ap-south-1b"
+                    }
+                }
+            ], 
+            "DBSubnetGroupName": "default", 
+            "VpcId": "vpc-c3d5d0ab", 
+            "DBSubnetGroupDescription": "default", 
+            "SubnetGroupStatus": "Complete"
+        }, 
+        "ReadReplicaDBInstanceIdentifiers": [], 
+        "AllocatedStorage": 20, 
+        "DBInstanceArn": "arn:aws:rds:ap-south-1:920033848866:db:ruk-word-db", 
+        "BackupRetentionPeriod": 1, 
+        "DBName": "rukworddb", 
+        "PreferredMaintenanceWindow": "sun:08:08-sun:08:38", 
+        "DBInstanceStatus": "creating", 
+        "IAMDatabaseAuthenticationEnabled": false, 
+        "EngineVersion": "10.2.21", 
+        "DeletionProtection": false, 
+        "DomainMemberships": [], 
+        "StorageType": "gp2", 
+        "DbiResourceId": "db-JF7V7QEZAT5WXBWE4WZ4YPX5SM", 
+        "StorageEncrypted": false, 
+        "AssociatedRoles": [], 
+        "DBInstanceClass": "db.t2.micro", 
+        "DbInstancePort": 0, 
+        "DBInstanceIdentifier": "ruk-word-db"
+    }
+}
+##########Output end######
+
+ecs-cli up --keypair rukja-prod --capability-iam --size 2 --instance-type t2.micro --cluster-config ruk-test --extra-user-data ./myuserdata.txt --security-group sg-0f9a10d3930074e23 --vpc vpc-c3d5d0ab --subnets subnet-a4c85be8 --ecs-profile rukjaana
+
+aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
+
+
+USERNAME - MyRukjaanaNiteSonali
+PASSWORD - @@@Nitesh@@KUMARSO12hd

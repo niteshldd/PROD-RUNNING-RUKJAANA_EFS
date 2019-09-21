@@ -1,0 +1,215 @@
+169* ecs-cli compose up --create-log-groups --cluster-config 
+  170* ecs-cli configure --cluster rukjaana --default-launch-type EC2 --config-name rukjaana --region ap-south-1
+  171* ecs-cli configure profile --access-key  --secret-key AWS_SECRET_ACCESS_KEY --profile-name ec2-tutorial-profile
+  172  ecs-cli configure profile --access-key AKIAV632IM7XL4P7VTFW --secret-key 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 --profile-name Rukjaana
+  173  ecs-cli ps --cluster-config aws-wordpress-rukjaana --ecs-profile rukjaana
+  174  ecs-cli ps --cluster-config aws-wordpress-rukjaana
+  175  ecs-cli ps
+  176  ecs-cli up --keypair /home/ubu/Downloads/aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-172.17.0.0/16,subnet-172.31.0.0/16 --ecs-profile Rukjaana
+  177  ecs-cli up --keypair /home/ubu/Downloads/aws-wordpress-rukjaana.pem --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-172.17.0.0/16,subnet-172.31.0.0/16 --ecs-profile Rukjaana
+  178  ecs-cli up --force --keypair /home/ubu/Downloads/aws-wordpress-rukjaana.pem --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-172.17.0.0/16,subnet-172.31.0.0/16 --ecs-profile Rukjaana
+  179  sudo ecs-cli up --force --keypair /home/ubu/Downloads/aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-172.17.0.0/16,subnet-172.31.0.0/16 --ecs-profile Rukjaana
+  180  ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-172.17.0.0/16,subnet-172.31.0.0/16 --ecs-profile Rukjaana
+  181  ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
+
+  NEW WITH EXTERNAL DRIVE 
+
+  ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --template-url http://s3.amazonaws.com/ecs-refarch-volume-plugins/rexray-demo-efs.yaml --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
+  
+  182  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+   1  sudo apt-get remove --purge mysql*
+    2  sudo apt-get purge mysql*
+    3  sudo apt-get autoremove
+    4  sudo apt-get autoclean
+    5  sudo apt-get remove dbconfig-mysql
+    6  sudo apt-get dist-upgrade
+    7  sudo apt-get update
+    8  sudo apt-get install mysql-server
+    9  mysql_secure_installation
+   10  toor
+   11  mysql_secure_installation
+   12  sudo service mysql stop
+   13  sudo mkdir /var/run/mysqld; sudo chown mysql /var/run/mysqld
+   14  sudo mysqld_safe --skip-grant-tables&
+   15  sudo mysql --user=root mysql
+   16  sudo service mysql stop
+   17  sudo service mysql start
+   18  sudo service mysql status
+   19  sudo service mysql start
+   20  sudo mysqladmin shutdown
+   21  sudo service mysql start
+   22  sudo service mysql status
+   23  mysql
+   24  sudo service mysql start
+   25  sudo service mysql enable
+   26  sudo service mysql status
+   27  sudo service mysql force-reload
+   28  kill pid 16424
+   29  kill -al | grep mysql
+   30  kill -a | grep mysql
+   31  ps -al | grep mysql
+   32  kill | ps -al | grep mysql
+   33  kill pid 10828
+   34  sudo kill pid 10828
+   35  sudo kill 10828
+   36  sudo kill 10829
+   37  sudo kill 11217
+   38  kill | ps -al | grep mysql
+   39  sudo kill 1156
+   40  sudo kill mysql*
+   41  sudo kill mysql
+   42  kill | ps -al | grep mysql
+   43  mysql
+   44  sudo mysqladmin shutdown
+   45  /var/run/mysqld/mysqld.sock'
+   46  /var/run/mysqld/mysqld.sock
+   47  /var/run/mysqld
+   48  ls
+   49  sudo apt-get remove --purge mysql* -y
+   50  sudo apt-get autoremove -y
+   51  sudo apt-get autoclean
+   52  sudo apt-get remove dbconfig-mysql
+   53  sudo apt-get dist-upgrade
+   54  mysql
+   55  sudo apt-get remove mysql-server
+   56  mysql
+   57  sudo apt install mysql-server
+   58  sudo apt-get remove --purge mysql -y
+   59  sudo apt-get purge mysql* -y
+   60  sudo apt-get autoremove -y
+   61  sudo apt-get autoclean -y
+   62  sudo apt-get remove dbconfig-mysql
+   63  sudo apt-get dist-upgrade
+   64  mysql
+   65  sudo apt-get clean
+   66  sudo apt-get update
+   67  sudo dpkg -r mysql-client-5.7
+   68  mysqk
+   69  mysql
+   70  sudo dpkg -r mysql-server-5.7
+   71  sudo dpkg -r mysql-server
+   72  sudo dpkg -r libmysqlclient20:i386
+   73  sudo dpkg -r libmysqlclient20:amd64
+   74  sudo dpkg -r libmysqlclient18:amd64
+   75  sudo dpkg -r mysql-common
+   76  sudo dpkg -r mysql 
+   77  sudo apt-get purge mysql\* mariadb\* libmysql\* libmariadb\*
+   78  mysql
+   79  sudo apt install mysql-server
+   80  mysql
+   81  sudo apt purge mysql-client-5.7 mysql-client-core-5.7 mysql-common mysql-server-5.7 mysql-server-core-5.7 mysql-server
+   82  sudo apt update && sudo apt dist-upgrade && sudo apt autoremove && sudo apt -f install
+   83  sudo apt install mysql-server
+   84  mysql
+   85  sudo apt-get purge mysql-*
+   86  sudo apt-get autoremove
+   87  sudo apt-get autoclean
+   88  sudo apt-get dist-upgrade
+   89  sudo rm -rf /etc/mysql
+   90  sudo rm -rf /var/lib/mysql*
+   91  mysql
+   92  sudo apt purge mysql-client-5.7 mysql-client-core-5.7 mysql-common mysql-server-5.7 mysql-server-core-5.7 mysql-server
+   93  sudo apt update && sudo apt dist-upgrade && sudo apt autoremove && sudo apt -f install
+   94  reboot
+   95  mysqk
+   96  mysql
+   97  sudo apt install mysql-server
+   98  mysql
+   99  mysql -u root -p
+  100  cat /etc/mysql/mysql.cnf
+  101  cat /etc/mysql/my.cnf
+  102  cat /etc/mysql/conf.d/
+  103  cat /etc/mysql/conf.d/mysql.cnf 
+  104  cat /etc/mysql/conf.d/mysqldump.cnf 
+  105  cat /etc/mysql/conf.d/
+  106  sudo mysql_secure_installation
+  107  mysql
+  108  mysql -u root
+  109  mysql -u root -p
+  110  mysqld --initialize
+  111  sudo mysql
+  112  mysql -u root -p
+  113  shutdown
+  114  shutdown -f
+  115  shutdown --help
+  116  shutdown -p
+  117  shutdown -P
+  118  ls
+  119  ssh -i aws-wordpress-rukjaana.pem ubuntu@ec2-13-126-62-67.ap-south-1.compute.amazonaws.com
+  120  sudo ssh -i aws-wordpress-rukjaana.pem ubuntu@ec2-13-126-62-67.ap-south-1.compute.amazonaws.com
+  121  code .
+  122  history
+  123  ls
+  124  cd Documents/
+  125  ls
+  126  cd Wordpress-live/
+  127  ls
+  128  code .
+  129  ecs-cli up --force --keypair aws-wordpress-rukjaana --capability-iam --size 1 --instance-type t2.micro --cluster-config rukjaana --security-group sg-0ad50bf47e2bd4bf7 --vpc vpc-eaa99082 --subnets subnet-e59c0ba9,subnet-6f69b714,subnet-e59c0ba9,subnet-71f4d219,subnet-e59c0ba9,subnet-6f69b714,subnet-71f4d219 --ecs-profile Rukjaana
+  130  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  131  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  132  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  133  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  134  ecs-cli compose down --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  135  ecs-cli compose down  --cluster-config rukjaana --ecs-profile Rukjaana
+  136  ecs-cli compose service up  --cluster-config rukjaana --ecs-profile Rukjaana
+  137  ecs-cli compose down  --cluster-config rukjaana --ecs-profile Rukjaana
+  138  ecs-cli compose service up  --cluster-config rukjaana --ecs-profile Rukjaana
+  139  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  140  docker build --rm -t wordpress:1.0 .
+  141  sudo docker build --rm -t nginx:1.0 .
+  142  $(aws ecr get-login --no-include-email)
+  143  sudo $(aws ecr get-login --no-include-email)
+  144  aws ecr create-repository --repository-name nginx
+  145  docker tag wordpress:1.0 XYZ.dkr.ecr.us-east-1.amazonaws.com/nginx:1.0
+  146  sudo docker tag wordpress:1.0 XYZ.dkr.ecr.us-east-1.amazonaws.com/nginx:1.0
+  147  docker push 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx/nginx:1.0
+  148  sudo docker push 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+  149  sudo docker tag wordpress:1.0 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+  150  sudo docker push 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+  151  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  152  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  153  sudo docker tag nginx:1.0 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+  154* sudo docker push 409888909294.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0
+  155  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  156  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  157  sudo docker build --rm -t niteshldd/nginx .
+  158  sudo docker push
+  159  sudo docker push niteshldd/nginx
+  160  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  161  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  162  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  163  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  164  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  165  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  166  sudo docker ps
+  167  sudo docker images
+  168  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  169  ecs-cli compose up --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  170  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  171  CD ..
+  172  cd ..
+  173  ls
+  174  cd wordpress-docker/
+  175  ls
+  176  aws ecs register-task-definition --cli-input-json file:///home/ubu/Documents/Wordpress-live/wp-aws-efs-ecs/task-wordpress.json
+  177  aws ecs register-task-definition --cli-input-json ./task-wordpress.json
+  178* aws ecs register-task-definition --cli-input-json ta
+  179  $(aws ecr get-login --no-include-email)
+  180  ls
+  181  aws ecs register-task-definition --cli-input-json file://home/ubu/Documents/Wordpress-live/wp-aws-efs-ecs/task-wordpress.json
+  182  aws ecs register-task-definition --cli-input-json file://home/ubu/Documents/Wordpress-live/wordpress-docker/task-wordpress.json
+  183  aws ecs register-task-definition --cli-input-json file:///home/ubu/Documents/Wordpress-live/wordpress-docker/task-wordpress.json
+  184  cd ..
+  185  ls
+  186  cd docker-wordpress-nginx-ssl-mysql/
+  187  ecs-cli compose down --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  188  ecs-cli compose stop --create-log-groups --cluster-config rukjaana --ecs-profile Rukjaana
+  189  ecs-cli compose stop
+  190  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  191  ecs-cli compose stop
+  192  ecs-cli ps --cluster-config rukjaana --ecs-profile Rukjaana
+  193  ecs-cli compose stop
+  194  history
+
+  https://blog.andreev.it/?p=4417
