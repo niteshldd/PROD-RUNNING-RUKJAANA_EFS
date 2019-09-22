@@ -1,3 +1,23 @@
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_efs.html
   https://blog.andreev.it/?p=4417
-  
+  #Load testing
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 379CE192D401AB61
+echo "deb https://dl.bintray.com/loadimpact/deb stable main" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+sudo apt-get install k6
+k6 cloud --vus 50 -d 2m script.js
+
+import { check } from "k6";
+import http from "k6/http";
+
+export default function() {
+  let res = http.get("http://test.loadimpact.com");
+
+  check(res, {
+      "is status 200": (r) => r.status === 200
+  });
+
+  sleep(3);
+}
+
+https://docs.k6.io/docs/modules
