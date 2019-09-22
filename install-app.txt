@@ -123,6 +123,8 @@ ecs-cli up --force --keypair rukja-prod --capability-iam --size 1 --instance-typ
 
 aws ecs register-task-definition --cli-input-json file:////home/ubu-prod/Documents/rukjaa-prod/task-wordpress.json
 
+curl -IL https://www.rukjaana.com
+
 Rukja-prod enviroment 
 email - nitesh@uruvelaa.com
 USERNAME - MyRukjaanaNiteSonali
