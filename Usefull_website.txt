@@ -23,3 +23,6 @@ export default function() {
 https://docs.k6.io/docs/modules
 https://gist.github.com/denji/8359866
 https://www.digitalocean.com/community/tutorials/how-to-optimize-nginx-configuration
+HSTS NGINX - https://www.nginx.com/blog/http-strict-transport-security-hsts-and-nginx/
+HSTS - https://hstspreload.org/
+SSL - http://nginx.org/en/docs/http/ngx_http_ssl_module.html
