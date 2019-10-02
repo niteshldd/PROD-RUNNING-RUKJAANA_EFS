@@ -29,3 +29,4 @@ SSL - http://nginx.org/en/docs/http/ngx_http_ssl_module.html
 SFTP - https://www.digitalocean.com/community/tutorials/how-to-use-sftp-to-securely-transfer-files-with-a-remote-server
 WORDPRESS WITH NGINX - https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-with-docker-compose#step-4-%E2%80%94-obtaining-ssl-certificates-and-credentials
 
+WORDPRESS WITH PERMISSION WITH UPDATE 1.3nginx - https://pubwp.com/how-to-solve-wordpress-could-not-create-directory/
