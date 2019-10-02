@@ -32,7 +32,7 @@
       },
       {
         "name": "nginx",
-        "image": "920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0",
+        "image": "920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.2",
         "cpu": 100,
         "memory": 100,
         "essential": true,
