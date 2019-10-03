@@ -2,9 +2,9 @@
     "containerDefinitions": [
       {
         "name": "wordpress",
-        "image": "wordpress:latest",
+        "image": "wordpress:php7.3-fpm-alpine",
         "cpu": 100,
-        "memory": 300,
+        "memory": 200,
         "essential": true,
         "environment": [
           { "name":"WORDPRESS_DB_HOST",
@@ -22,6 +22,10 @@
              "name": "WORDPRESS_DB_NAME",
              "value": "rukworddb"
            }
+           ,{
+             "name": "WORDPRESS_TABLE_PREFIX",
+             "value": "kuns75_"
+           }
           ],
         "mountPoints": [
           {
@@ -32,7 +36,7 @@
       },
       {
         "name": "nginx",
-        "image": "920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.0",
+        "image": "920033848866.dkr.ecr.ap-south-1.amazonaws.com/nginx:1.3",
         "cpu": 100,
         "memory": 100,
         "essential": true,
@@ -40,6 +44,10 @@
           "wordpress"
       ],
         "mountPoints": [
+          {
+            "sourceVolume": "wordpress",
+            "containerPath": "/var/www/html"
+          },
           {
             "sourceVolume": "nginx",
             "containerPath": "/var/log/nginx"
