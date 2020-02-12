@@ -1,3 +1,5 @@
+UPDATE -  aws ecr get-login-password | docker login --username AWS --password-stdin 910441477401.dkr.ecr.ap-south-1.amazonaws.com/cloth-docker
+
 169* ecs-cli compose up --create-log-groups --cluster-config 
   170* ecs-cli configure --cluster rukjaana --default-launch-type EC2 --config-name rukjaana --region ap-south-1
   171* ecs-cli configure profile --access-key  --secret-key AWS_SECRET_ACCESS_KEY --profile-name ec2-tutorial-profile
